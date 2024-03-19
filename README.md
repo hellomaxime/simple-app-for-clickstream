@@ -1,0 +1,1 @@
+# simple-app-for-clickstream
