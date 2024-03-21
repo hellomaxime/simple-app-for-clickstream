@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<style>
+  .btn-group button {
+    border: 1px solid black;
+    color: white;
+    padding: 60px 60px;
+    margin: 5px 5px;
+    cursor: pointer;
+    float: left;
+  }
+
+  .btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+</style>
+<body>
+
+<h1>Color Buttons</h1>
+
+<div class="grid">
+  <div class="btn-group">
+    <button style="background-color:red" onclick="request('red')"></button>
+    <button style="background-color:green" onclick="request('green')"></button>
+    <button style="background-color:blue" onclick="request('blue')"></button>
+  </div>
+  <div class="btn-group">
+    <button style="background-color:yellow" onclick="request('yellow')"></button>
+    <button style="background-color:orange" onclick="request('orange')"></button>
+    <button style="background-color:purple" onclick="request('purple')"></button>
+  </div>
+  <div class="btn-group">
+    <button style="background-color:white" onclick="request('white')"></button>
+    <button style="background-color:grey" onclick="request('grey')"></button>
+    <button style="background-color:pink" onclick="request('pink')"></button>
+  </div>
+</div>
+
+<script>
+  function request(color) {
+    fetch("http://localhost:5000/"+color)
+    .then(() => {
+      console.log("OK");
+    })
+    .catch(error => {
+      console.error("Error request");
+    })
+  }
+</script>
+
+</body>
+</html>
